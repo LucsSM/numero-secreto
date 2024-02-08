@@ -1,7 +1,10 @@
 let listaDeNumerosAleatorios = [];
+let numeroAleatorio = gerarNumeroAleatorio();
+let tentativas = 1;
+
 let campoTitulo = document.querySelector("h1");
 let campoInstrucao = document.querySelector(".texto__paragrafo");
-let numeroAleatorio = gerarNumeroAleatorio();
+let campoChute = document.querySelector(".container__input");
 
 textoInicial();
 
@@ -30,4 +33,22 @@ function gerarNumeroAleatorio() {
     }
     
     return numeroAleatorio;
+}
+
+function chutar() {
+    
+    let textoTentativa = tentativas == 1 ? "tentativa" : "tentativas";
+
+    if (campoChute.value > numeroAleatorio) {
+        mudarTexto(campoTitulo, "Errou!");
+        mudarTexto(campoInstrucao, "O numero secreto é menor...");
+        tentativas++;
+    } else if (campoChute.value < numeroAleatorio) {
+        mudarTexto(campoTitulo, "Errou!");
+        mudarTexto(campoInstrucao, "O numero secreto é maior...");
+        tentativas++;
+    } else {
+        mudarTexto(campoTitulo, "Acertou!");
+        mudarTexto(campoInstrucao, ` Você acertou com ${tentativas} ${textoTentativa}`);
+    }
 }
