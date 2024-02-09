@@ -20,6 +20,11 @@ function focarInput () {
     campoChute.focus();
 }
 
+function erroAnimacao () {
+    campoChute.classList.add("erro-animacao");
+    setTimeout(() => {campoChute.classList.remove("erro-animacao")}, 1000 );
+}
+
 function exibirTextoInicial() {
     mudarTexto(campoTitulo, "Jogo do Numero Secreto");
     mudarTexto(campoInstrucao, "Informe um número de 1 a 10");
@@ -47,10 +52,12 @@ function chutar() {
     if (campoChute.value > numeroSecreto) {
         mudarTexto(campoTitulo, "Errou!");
         mudarTexto(campoInstrucao, "O numero secreto é menor...");
+        erroAnimacao ();
         tentativas++;
     } else if (campoChute.value < numeroSecreto) {
         mudarTexto(campoTitulo, "Errou!");
         mudarTexto(campoInstrucao, "O numero secreto é maior...");
+        erroAnimacao ();
         tentativas++;
     } else {
         mudarTexto(campoTitulo, "Acertou!");
