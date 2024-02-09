@@ -63,6 +63,7 @@ function chutar() {
         mudarTexto(campoTitulo, "Acertou!");
         mudarTexto(campoInstrucao, ` Você acertou com ${tentativas} ${textoTentativa}`);
         botaoReiniciar.focus();
+        botaoReiniciar.classList.add("acerto-animacao");
     }
 }
 
@@ -73,6 +74,7 @@ function reiniciarJogo() {
     exibirTextoInicial();
     numeroSecreto = gerarNumeroAleatorio();
     botaoReiniciar.setAttribute("disabled", true);
+    botaoReiniciar.classList.remove("acerto-animacao");
 
     console.log(numeroSecreto);
     console.log(listaDeNumerosAleatorios);
