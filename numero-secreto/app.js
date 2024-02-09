@@ -6,6 +6,7 @@ let campoTitulo = document.querySelector("h1");
 let campoInstrucao = document.querySelector(".texto__paragrafo");
 let campoChute = document.querySelector(".container__input");
 let botaoReiniciar = document.getElementById("reiniciar");
+let imagem = document.querySelector(".container__imagem-pessoa");
 
 console.log(numeroSecreto);
 console.log(listaDeNumerosAleatorios);
@@ -64,6 +65,8 @@ function chutar() {
         mudarTexto(campoInstrucao, ` Você acertou com ${tentativas} ${textoTentativa}`);
         botaoReiniciar.focus();
         botaoReiniciar.classList.add("acerto-animacao");
+        imagem.src = "./img/robot.png";
+        imagem.classList.add(".container__imagem-vitoria");
     }
 }
 
@@ -75,6 +78,7 @@ function reiniciarJogo() {
     numeroSecreto = gerarNumeroAleatorio();
     botaoReiniciar.setAttribute("disabled", true);
     botaoReiniciar.classList.remove("acerto-animacao");
+    imagem.src = "./img/ia.png";
 
     console.log(numeroSecreto);
     console.log(listaDeNumerosAleatorios);
