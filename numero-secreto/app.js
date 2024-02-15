@@ -28,7 +28,7 @@ function erroAnimacao () {
 
 function exibirTextoInicial() {
     mudarTexto(campoTitulo, "Jogo do Numero Secreto");
-    mudarTexto(campoInstrucao, "Informe um número de 1 a 100");
+    mudarTexto(campoInstrucao, "Informe um número de 1 a 10");
 }
 
 function gerarNumeroAleatorio() {
